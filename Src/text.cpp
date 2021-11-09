@@ -28,11 +28,17 @@ int main() {
     cout << "Entrer votre message : ";
     getline(cin, message);
 
-    carte << setcouleur(carte.ConvertirRGB565(255, 105, 180)) << setrotation(270);
+    int i = 0;
+
     while(1){
 
-	carte << "'" << message << "'" << flush;
-	sleep(1);
+        i++;
+        if (i > 255) {
+            i = 0;
+        }
+        carte << setcouleur(carte.ConvertirRGB565(255, 105, i)) << setrotation(270);
+        carte << message << flush;
+        sleep(1);
     }
     return 0;
 }
