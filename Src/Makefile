@@ -70,7 +70,7 @@ uninstall:
 # Ncurses
 ncurseMenu: ncurseMenu.o
 	@echo Building target file: $@.
-	g++ -L$(LIBRARY_PATH) -o $@ $^ -l SenseHat -l RTIMULib
+	g++ -L$(LIBRARY_PATH) -o $@ $^ -l SenseHat -l RTIMULib -l ncurses
 	@echo
 
 .PHONY: clean
