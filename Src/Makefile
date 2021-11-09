@@ -69,7 +69,7 @@ uninstall:
 
 # Ncurses
 Ncurses:
-	g++ -lncurses ncursesMenu.cpp -o menu
+	g++ -lncurses ncurseMenu.cpp -o menu
 
 
 .PHONY: clean
