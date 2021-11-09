@@ -67,6 +67,9 @@ niveau: niveau.o
 uninstall:
 	rm -f  niveau text2 text secouer exemple caractere clock
 
+# Ncurses
+Ncurses:
+	g++ -lncurses HelloWorldNcurses.cpp -o menu
 
 
 .PHONY: clean
