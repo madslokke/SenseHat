@@ -32,12 +32,12 @@ int main() {
 
     while(1){
 
-        i++;
+        i += 10;
         if (i > 255) {
             i = 0;
         }
         carte << setcouleur(carte.ConvertirRGB565(255, 105, i)) << setrotation(270);
-        carte << message << flush;
+        carte << "  " << message << flush;
         sleep(1);
     }
     return 0;
