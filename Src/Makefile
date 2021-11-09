@@ -68,7 +68,7 @@ uninstall:
 	rm -f  niveau text2 text secouer exemple caractere clock
 
 # Ncurses
-Ncurses: ncurseMenu.o
+ncurseMenu: ncurseMenu.o
 	@echo Building target file: $@.
 	g++ -L$(LIBRARY_PATH) -o $@ $^ -l SenseHat -l RTIMULib
 	@echo
