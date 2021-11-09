@@ -13,7 +13,7 @@ SOURCES += caractere.cpp clock.cpp exemple.cpp niveau.cpp secouer.cpp text.cpp
 #List of object files
 OBJECTS += $(SOURCES:.cpp=.o)
 
-all: caractere compass clock exemple niveau secouer text
+all: caractere compass clock exemple niveau secouer text Ncurses
 
 #Compile all of the source files
 %.o: %.cpp
