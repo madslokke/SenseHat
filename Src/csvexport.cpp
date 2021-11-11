@@ -32,7 +32,7 @@ int main() {
 
     std::string filename = "test.csv";
     std::ofstream myFile(filename);
-    myFile << "Temp,Pres";
+    myFile << "Temperature,Pressure,Humidity";
     myFile << "\n";
 
     for (int i = 0; i < 10; ++i) {
@@ -57,7 +57,7 @@ int main() {
         std::cout << "orientation pitch : " << pitch << " roll : " << roll << " yaw : " << yaw << std::endl;
         std::cout << "magnétisme x : " << xm << "(µT) y : " << ym << "(µT) z : " << zm << "(µT)" << std::endl;
 
-        myFile << temperature << "," << pression;
+        myFile << temperature << "," << pression << "," << humidite;
 
         myFile << "\n";
 
