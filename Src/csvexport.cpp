@@ -19,6 +19,7 @@ std::ofstream myFile(filename);
 void my_handler(int s){
     // Close the file
     myFile.close();
+    exit(1);
 }
 
 void setupHandler() {
