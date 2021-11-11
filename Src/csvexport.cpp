@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <unistd.h>
+#include <chrono>
 #include <ctime>
 
 std::string filename = "test.csv";
