@@ -73,6 +73,12 @@ ncurseMenu: ncurseMenu.o
 	g++ -L$(LIBRARY_PATH) -o $@ $^ -l SenseHat -l RTIMULib -l ncurses
 	@echo
 
+# csvexport
+csvexport: csvexport.o
+	@echo Building target file: $@.
+	g++ -L$(LIBRARY_PATH) -o $@ $^ -l SenseHat -l RTIMULib
+	@echo
+
 .PHONY: clean
 clean:
 	rm -f *.o
