@@ -13,13 +13,15 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void my_handler(int s){
-    printf("Caught signal %d\n",s);
-    exit(1);
+std::string filename = "test.csv";
+std::ofstream myFile(filename);
 
+void my_handler(int s){
+    // Close the file
+    myFile.close();
 }
 
-int main() {
+void setupHandler() {
     struct sigaction sigIntHandler;
 
     sigIntHandler.sa_handler = my_handler;
@@ -27,6 +29,11 @@ int main() {
     sigIntHandler.sa_flags = 0;
 
     sigaction(SIGINT, &sigIntHandler, NULL);
+}
+
+int main() {
+
+    setupHandler();
 
     SenseHat carte;
 
@@ -47,12 +54,10 @@ int main() {
         sleep(1);
     }
 
-    std::string filename = "test.csv";
-    std::ofstream myFile(filename);
     myFile << "Temperature,Pressure,Humidity";
     myFile << "\n";
 
-    for (int i = 0; i < 10; ++i) {
+    while(1) {
         pression    = carte.ObtenirPression();
         temperature = carte.ObtenirTemperature();
         humidite    = carte.ObtenirHumidite();
@@ -80,6 +85,4 @@ int main() {
 
         usleep(500*1000);
     }
-    // Close the file
-    myFile.close();
 };
