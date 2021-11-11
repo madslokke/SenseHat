@@ -35,7 +35,7 @@ int main() {
     myFile << "Temp,Pres";
     myFile << "\n";
 
-    while(1){
+    for (int i = 0; i < 10; ++i) {
         pression    = carte.ObtenirPression();
         temperature = carte.ObtenirTemperature();
         humidite    = carte.ObtenirHumidite();
