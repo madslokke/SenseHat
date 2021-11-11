@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <unistd.h>
+#include <ctime>
 
 std::string filename = "test.csv";
 std::ofstream myFile(filename);
@@ -48,7 +49,7 @@ int main() {
     COULEUR vert  = carte.ConvertirRGB565("#009900");
     COULEUR rouge = carte.ConvertirRGB565(255,0,0);
 
-    myFile << "Temperature,Pressure,Humidity";
+    myFile << "Time,Temperature,Pressure,Humidity";
     myFile << "\n";
 
     while(1) {
@@ -73,7 +74,10 @@ int main() {
         std::cout << "orientation pitch : " << pitch << " roll : " << roll << " yaw : " << yaw << std::endl;
         std::cout << "magnétisme x : " << xm << "(µT) y : " << ym << "(µT) z : " << zm << "(µT)" << std::endl;
 
-        myFile << temperature << "," << pression << "," << humidite;
+        std::chrono::time_point<std::chrono::system_clock> datetime = std::chrono::system_clock::now();
+        std::time_t date_time = std::chrono::system_clock::to_time_t(datetime);
+
+        myFile << std::ctime(&date_time) << "," << temperature << "," << pression << "," << humidite;
 
         myFile << "\n";
 
